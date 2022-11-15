@@ -28,8 +28,7 @@ let questions = [
     bad: ["the choices placeholder", "anotha one"], //this is the no that gives you unhappy lose time.
     answer: "anser placeholder"},//this is the yay that gives you 20 nice
 ];
-const finalQuestion = questions.length -1;
-let currentQuestion = 0;
+
 
 
 
@@ -51,9 +50,10 @@ function startTimer() {
       timeLeft--;
       timerEl.textContent = timeLeft;
     //  if (timeLeft >= 0) {
-        // Tests if win condition is met
+        // Tests if no questionsLeft
        /* if (noQuestion && timeLeft > 0) {
           // Clears interval and stops timer
+          timerEl.textContent = timeLeft
           clearInterval(timer);
           endGame();
         }
@@ -69,21 +69,35 @@ function startTimer() {
 
 
   //question, not to be confused with questions. the decision was questionable.
-let question  = document.getElementById('#question');
-let answer1 = document.getElementById('#answer1');
-let answer2 = document.getElementById('#answer2');
-let answer3 = document.getElementById('#answer3');
-let answer4 = document.getElementById('#answer4');
+let question  = document.getElementById('question');
+let answer1 = document.getElementById('answer1');
+let answer2 = document.getElementById('answer2');
+let answer3 = document.getElementById('answer3');
+let answer4 = document.getElementById('answer4');
+
+const finalQuestion = questions.length -1;
+let currentQuestion = 0;
 
 function showQuestion() {
  
     let q = questions[currentQuestion];
     //display  question with multiple choice answer
-    question.innerHTML = "<p>" + q.title
+    question.innerHTML = "<p>" + q.title + "</p>";
+    answer1.innerHTML = q.answer1;
+    answer2.innerHTML = q.answer2;
+    answer3.innerHTML = q.answer3;
+    answer4.innerHTML = qanswer4;
     //if answered incorrectly, "he chose... poorly" take 20 secondddddddd 
     //if answered correctly,  "you chose... wisely" give 20  nice
+    checkAnswer()
 }
 
+function checkAnswer () {
+
+    if (questions[currentQuestion].correct == answer) {
+        score++
+    }
+}
 function endGame () {
     //if timer = 0 bad time you lose
     //if questionsLeft === 0 you also maybe lose. Mostly your pride if your initials aren't A.S.S.
