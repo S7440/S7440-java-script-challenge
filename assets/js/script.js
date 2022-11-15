@@ -1,7 +1,7 @@
 //Welcome to the game
 
 //clicking start button starts game
-const startButton = document.getElementById('#start-button');
+const startButton = document.getElementById('start-button');
 let questions = [
     {title: "the question place holder",
     bad: ["the choices placeholder", "anotha one"], //this is the no that gives you unhappy lose time.
@@ -36,34 +36,38 @@ let currentQuestion = 0;
 
 //Button has been clicked. Begin pain sequence.
 function startGame(event) {
-    event.preventDefault();
+    
 
     startTimer();
-    showQuestion();
+   // showQuestion();
 };
-let timerEl = document.getElementById('#timer-count');
-let timeLeft = 120
+let timer = document.querySelector('#timer-count')
+let timerEl = document.getElementById('timer-count');
+let timeLeft = 10
+
 function startTimer() {
     // Sets timer
     timer = setInterval(function() {
       timeLeft--;
-      timerElement.textContent = timeLeft;
-      if (timeLeft >= 0) {
+      timerEl.textContent = timeLeft;
+    //  if (timeLeft >= 0) {
         // Tests if win condition is met
-        if (noQuestion && timeLeft > 0) {
+       /* if (noQuestion && timeLeft > 0) {
           // Clears interval and stops timer
           clearInterval(timer);
           endGame();
         }
-      }
+      }*/
     //if timer is 0 "like, totally, game over man" ~shaggy
     if (timeLeft === 0) {
         // Clears interval
         clearInterval(timer);
-        endGame();
+     //   endGame();
       }
     }, 1000);
   }
+
+
   //question, not to be confused with questions. the decision was questionable.
 let question  = document.getElementById('#question');
 let answer1 = document.getElementById('#answer1');
