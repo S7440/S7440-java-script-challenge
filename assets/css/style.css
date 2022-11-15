@@ -1,40 +1,116 @@
+:root {
+    --header: #33658a;
+    --primary: #A9927D;
+    --secondary: #b47eb3;
+  }
 * {
     font-family: Arial, Helvetica, sans-serif;
 }
 body {
-    max-width: auto;
+    min-width: 762px;
+    background-color: #A9927D;
+    margin:0;
     display: grid;
     grid-gap: 5px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: minmax(150px, auto);
     grid-template-areas: 
-        "header header header header"
-        ". game game score"
-        "footer footer footer footer";
+        "header header header"
+        "game game score"
+        "footer footer footer";
+        
     
 }
-
+button {
+    padding: 10px;
+   
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+li {
+    display: inline;
+}
+a {
+    padding: 10px;
+    margin: 10px 10px 10px 0;
+    background-color: var(--primary);
+    color: black;
+    border: solid 2px black;
+    border-radius: 14px;
+    box-shadow: 5px 5px var(--primary);
+    align-self: center;
+    text-decoration: none;
+}
+a:hover {
+    background-color: var(--secondary);
+    box-shadow: none;
+}
+button {
+    display: inline-flex;
+    padding: 10px;
+    margin: 10px 10px 10px 0;
+    background-color: var(--primary);
+    color: black;
+    border-radius: 14px;
+    box-shadow: 5px 5px var(--header);
+  }
+  button a {
+    color: black
+  }
+  button:hover {
+    background-color: var(--secondary);
+    box-shadow: none;
+  
+  }
+  header {
+    display: flexbox
+  }
 .header {
     grid-area: header;
     display:flex;
+    background-color:var(--header);
+    padding-left: 20px;
+    padding-right: 20px;
     justify-content: space-between;
-    background-color:aqua;
+    align-items: center;
 
 }
 
+.container {
+    display: flex;
+    max-width: 960px;
+    margin-left: 10%;
+    margin-right: 10%;
+    align-items: center;
 
+
+}
 
 .game-area {
     grid-area: game;
-    background-color: blue;
+    background-color: var(--primary);
+    width: 75vw;
+    
 }
 
 .score-area {
+    display: flex;
     grid-area: score;
-    background-color: crimson;
+    background-color: var(--primary);
+    width: 25vw;
 }
 
 .footer {
+align-items: end;
     grid-area: footer;
-    background-color: aqua;
+    background-color: var(--header);
     text-align: center;
 
+}
+.timer-count {
+  margin-right: 25px;
 }
