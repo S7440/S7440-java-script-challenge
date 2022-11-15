@@ -1,13 +1,39 @@
 //Welcome to the game
 
 //clicking start button starts game
-
-let startButton = document.getElementById('#start-button');
+const startButton = document.getElementById('#start-button');
 let questions = [
     {title: "the question place holder",
-    choices: ["the choices placeholder", "anotha one"],
-    answer: "anser placeholder"}
+    bad: ["the choices placeholder", "anotha one"], //this is the no that gives you unhappy lose time.
+    answer: "anser placeholder"},//this is the yay that gives you 20 nice
+    {title: "the question place holder",
+    bad: ["the choices placeholder", "anotha one"], //this is the no that gives you unhappy lose time.
+    answer: "anser placeholder"},//this is the yay that gives you 20 nice
+    {title: "the question place holder",
+    bad: ["the choices placeholder", "anotha one"], //this is the no that gives you unhappy lose time.
+    answer: "anser placeholder"},//this is the yay that gives you 20 nice
+    {title: "the question place holder",
+    bad: ["the choices placeholder", "anotha one"], //this is the no that gives you unhappy lose time.
+    answer: "anser placeholder"},//this is the yay that gives you 20 nice 
+    {title: "the question place holder",
+    bad: ["the choices placeholder", "anotha one"], //this is the no that gives you unhappy lose time.
+    answer: "anser placeholder"},  //this is the yay that gives you 20 nice
+    {title: "the question place holder",
+    bad: ["the choices placeholder", "anotha one"], //this is the no that gives you unhappy lose time.
+    answer: "anser placeholder"},//this is the yay that gives you 20 nice 
+    {title: "the question place holder",
+    bad: ["the choices placeholder", "anotha one"], //this is the no that gives you unhappy lose time.
+    answer: "anser placeholder"},//this is the yay that gives you 20 nice
+    {title: "the question place holder",
+    bad: ["the choices placeholder", "anotha one"], //this is the no that gives you unhappy lose time.
+    answer: "anser placeholder"},//this is the yay that gives you 20 nice
 ];
+const finalQuestion = questions.length -1;
+let currentQuestion = 0;
+
+
+
+
 //Button has been clicked. Begin pain sequence.
 function startGame(event) {
     event.preventDefault();
@@ -47,7 +73,9 @@ let answer4 = document.getElementById('#answer4');
 
 function showQuestion() {
  
+    let q = questions[currentQuestion];
     //display  question with multiple choice answer
+    question.innerHTML = "<p>" + q.title
     //if answered incorrectly, "he chose... poorly" take 20 secondddddddd 
     //if answered correctly,  "you chose... wisely" give 20  nice
 }
