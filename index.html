@@ -17,20 +17,33 @@
         </nav>
     </header>
     <main>
+        <div class="timer">
+            time left: <span id="time">0</span>
+        </div>
         <div class="container">
-            <section class="game-area">
-                <p id="question">Question Here</p>
-                <ul>
+            <section class="start-screen" id="start-screen">
+                <h1>ready to begin?</h1>
+                <p>explanation of guidelines and stuff placeholder</p>
+                <button id="start-button">Start game</button>
+            </section>
+            <section class="hide" id="questions game-area">
+                <h4 id="question"></h4>
+                <div class="choices" id="choices">
+
+                </div>
+
+                <!-- <ul>
                     <li><button id="answer1">answer1</button></li>
                     <li><button id="answer2">answer2</button></li>
                     <li><button id="answer3">answer3</button></li>
                     <li><button id="answer4">answer4</button></li>
-                </ul>
+                </ul> -->
             </section>
-            <section class="score-area">
-                    <h2 id="timer-count"></h2>
-                    <button id="start-button">Start game</button>
-                    <button id="reset-button">Reset game</button>
+            <section class="hide" id="score-area">
+                    <h2>all done?</h2>
+                    <p>Your final score is <span id="final-score"></span></p>
+                    <p>enter initials: <input type="text" id="initials"/></p>
+                    <button id="submit-button">submit</button>
             </section>
         </div>
      

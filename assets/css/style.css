@@ -114,3 +114,11 @@ align-items: end;
 .timer-count {
   margin-right: 25px;
 }
+
+.hide {
+    display: none
+}
+
+.start-screen {
+    text-align: center;
+}
