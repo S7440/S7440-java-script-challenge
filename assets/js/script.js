@@ -6,20 +6,17 @@ let questions = [
     choices: ["the choices placeholder", "anotha one", "the correct one", "wrongagain"], //this is the no that gives you unhappy lose time.
     answer: "the correct one"},//this is the yay that gives you 20 nice
     {title: "the question place holder",
-    choices: ["the choices placeholder", "anotha one", "the correct one", "wrongagain"], //this is the no that gives you unhappy lose time.
-    answer: "anser placeholder"},//this is the yay that gives you 20 nice
+    choices: ["the choices placeholder", "anotha one", "the correct two", "wrongagain"], //this is the no that gives you unhappy lose time.
+    answer: "the correct two"},//this is the yay that gives you 20 nice    
     {title: "the question place holder",
-    choices: ["the choices placeholder", "anotha one", "the correct one", "wrongagain"], //this is the no that gives you unhappy lose time.
-    answer: "anser placeholder"},//this is the yay that gives you 20 nice
+    choices: ["the choices placeholder", "anotha one", "the correct three", "wrongagain"], //this is the no that gives you unhappy lose time.
+    answer: "the correct three"},//this is the yay that gives you 20 nice    
     {title: "the question place holder",
-    choices: ["the choices placeholder", "anotha one", "the correct one", "wrongagain"], //this is the no that gives you unhappy lose time.
-    answer: "anser placeholder"},//this is the yay that gives you 20 nice
+    choices: ["the choices placeholder", "anotha one", "the correct four", "wrongagain"], //this is the no that gives you unhappy lose time.
+    answer: "the correct four"},//this is the yay that gives you 20 nice    
     {title: "the question place holder",
-    choices: ["the choices placeholder", "anotha one", "the correct one", "wrongagain"], //this is the no that gives you unhappy lose time.
-    answer: "anser placeholder"},//this is the yay that gives you 20 nice
-    {title: "the question place holder",
-    choices: ["the choices placeholder", "anotha one", "the correct one", "wrongagain"], //this is the no that gives you unhappy lose time.
-    answer: "anser placeholder"},//this is the yay that gives you 20 nice
+    choices: ["the choices placeholder", "anotha one", "the correct five", "wrongagain"], //this is the no that gives you unhappy lose time.
+    answer: "the correct five"},//this is the yay that gives you 20 nice
 ];
 
 
@@ -33,6 +30,7 @@ let choicesEl = document.getElementById('choices');
 let submit = document.getElementById('submit-button');
 let startButton = document.getElementById('start-button');
 let initialsEl = document.getElementById('initials');
+let endEl = document.getElementById('score-area');
 
 //Button has been clicked. Begin pain sequence.
 function startGame() {
@@ -87,6 +85,7 @@ function showQuestion() {
         choiceNode.textContent = i +1 +'. ' + choice
         //busts through the html's page like the koolaid man with a brand new button for us.
         choicesEl.appendChild(choiceNode)
+        
     }
     // checkAnswer();
     
@@ -96,29 +95,33 @@ function showQuestion() {
 //WHY WONT YOU WORK WHY DO YOU HATE ME COMPUTER MAN
 function checkAnswer (event) {
     let buttonEl = event.target; 
-    console.log(buttonEl);
     //if the you click somewhere that is not have the choice class just no. no stuff for you.
     if (!buttonEl.matches('.choice')) {
-        console.log(ahhhh)
+        console.log('ahhhh')
         return
     }//this if is for if the button you click is not listed as answer you give me 20 seconds. theyre mine now thank you. I shall achieve immortality.
     if (buttonEl.value !== questions[questionIndex].answer) {
         //the mine time
         timeLeft -= 20;
+
         //if time less than 0 then time can only be 0.
         if (timeLeft<0) {
             //set time to zero
             timeLeft=0;
+            
         }
         //let player know time left. AND NO LYING THIS TIME.
         timeEL.textContent = timeLeft;
-
+        return
     } 
     //move to next question
     questionIndex++
+    console.log('next please')
     //if time more less than or equal 0 or questions are at an end then end game. IDK what to tell you know more questions?
     if (timeLeft <= 0 || questionIndex === questions.length) {
+
         endGame()
+        //return
         //or i guess show next question.
     } else {
         showQuestion()
@@ -131,10 +134,14 @@ function score()  {
 }
 
 function endGame () {   
+
     //if timer = 0 bad time you lose
     if (timeLeft <= 0) {
         //this clears the timer interval so it stops at zero
         clearInterval(timerID);
+        questionsEl.setAttribute('class', 'hide');
+        endEl.removeAttribute('class'); 
+
     }
     //if questionsLeft === 0 you also maybe lose. Mostly your pride if your initials aren't A.S.S.
     //ends game
@@ -157,4 +164,5 @@ function highScore() {
 startButton.addEventListener('click', function() {
     startGame();
 });
+choicesEl.onclick = checkAnswer;
 
