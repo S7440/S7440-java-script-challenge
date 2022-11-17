@@ -23,7 +23,7 @@ let questions = [
 let questionIndex = 0;
 let timer = document.querySelector('#timer-count')
 let timeEL = document.getElementById('time');
-let timeLeft = 3;
+let timeLeft = 120;
 let timerID;
 let questionsEl = document.getElementById('questions');
 let choicesEl = document.getElementById('choices');
