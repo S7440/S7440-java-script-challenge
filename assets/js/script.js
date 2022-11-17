@@ -23,7 +23,7 @@ let questions = [
 let questionIndex = 0;
 let timer = document.querySelector('#timer-count')
 let timeEL = document.getElementById('time');
-let timeLeft = 60;
+let timeLeft = 3;
 let timerID;
 let questionsEl = document.getElementById('questions');
 let choicesEl = document.getElementById('choices');
@@ -108,6 +108,7 @@ function checkAnswer (event) {
         if (timeLeft<0) {
             //set time to zero
             timeLeft=0;
+            clearInterval(timerID);
             
         }
         //let player know time left. AND NO LYING THIS TIME.
@@ -119,7 +120,7 @@ function checkAnswer (event) {
     console.log('next please')
     //if time more less than or equal 0 or questions are at an end then end game. IDK what to tell you know more questions?
     if (timeLeft <= 0 || questionIndex === questions.length) {
-
+        
         endGame()
         //return
         //or i guess show next question.
@@ -136,13 +137,11 @@ function score()  {
 function endGame () {   
 
     //if timer = 0 bad time you lose
-    if (timeLeft <= 0) {
-        //this clears the timer interval so it stops at zero
-        clearInterval(timerID);
+
         questionsEl.setAttribute('class', 'hide');
         endEl.removeAttribute('class'); 
 
-    }
+        
     //if questionsLeft === 0 you also maybe lose. Mostly your pride if your initials aren't A.S.S.
     //ends game
 }
