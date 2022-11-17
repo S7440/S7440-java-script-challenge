@@ -108,7 +108,6 @@ function checkAnswer (event) {
         if (timeLeft<0) {
             //set time to zero
             timeLeft=0;
-            clearInterval(timerID);
             
         }
         //let player know time left. AND NO LYING THIS TIME.
@@ -121,12 +120,13 @@ function checkAnswer (event) {
     //if time more less than or equal 0 or questions are at an end then end game. IDK what to tell you know more questions?
     if (timeLeft <= 0 || questionIndex === questions.length) {
         
+        //clearInterval(timerID)
         endGame()
         //return
         //or i guess show next question.
     } else {
         showQuestion()
-    }
+    } //clearInterval(timerID);
 }
 
 let scoreKeeper = document.getElementById('score');
@@ -137,7 +137,7 @@ function score()  {
 function endGame () {   
 
     //if timer = 0 bad time you lose
-
+        clearInterval(timerID)
         questionsEl.setAttribute('class', 'hide');
         endEl.removeAttribute('class'); 
 
