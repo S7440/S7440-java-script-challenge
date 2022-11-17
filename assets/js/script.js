@@ -4,7 +4,7 @@
 let questions = [
     {title: "the question place holder",
     choices: ["the choices placeholder", "anotha one", "the correct one", "wrongagain"], //this is the no that gives you unhappy lose time.
-    answer: "anser placeholder"},//this is the yay that gives you 20 nice
+    answer: "the correct one"},//this is the yay that gives you 20 nice
     {title: "the question place holder",
     choices: ["the choices placeholder", "anotha one", "the correct one", "wrongagain"], //this is the no that gives you unhappy lose time.
     answer: "anser placeholder"},//this is the yay that gives you 20 nice
@@ -41,7 +41,7 @@ function startGame() {
     //this hides the startscreen when you start the game. Currently works which is neat.
     startScreenEl.setAttribute('class', 'hide');
     //this is supposed to unhide the actual questions area.
-    questionsEl.removeAttribute('class', 'hide');
+    questionsEl.removeAttribute('class');
     //this sets the timer interval to 1000ms on startTimer
     timerID = setInterval(startTimer, 1000);
     //print out your time left for the user to see how much pain is left.
@@ -54,14 +54,14 @@ function startGame() {
 //le timer *french noises... you know the one*
 function startTimer() {
     //increments down every cycle
-   timeLeft--;
-   //gotta let em know they have one less time
-   timeEL.textContent = timeLeft;
-   //this ends the game if they are in too much pain.
-   if (timeLeft <= 0) {
-    endGame()
-   }
-  }
+    timeLeft--;
+    //gotta let em know they have one less time
+    timeEL.textContent = timeLeft;
+    //this ends the game if they are in too much pain.
+    if (timeLeft <= 0) {
+        endGame()
+    }
+}
 
 
 //questionable questions function. displays questions
@@ -74,7 +74,7 @@ function showQuestion() {
     titleEl.textContent = currentQuestion.title;
     //sets empty string for choices
     choicesEl.innerHTML = "";
-
+    
     //this do hickee is the fun part that actually displays  the game shizz
     //the counter guy. thank him for his service. As long as index is less than the length of the current questions choice array this for loop will do it's thang.
     for (var i = 0; i<currentQuestion.choices.length; i++) {
@@ -88,13 +88,18 @@ function showQuestion() {
         //busts through the html's page like the koolaid man with a brand new button for us.
         choicesEl.appendChild(choiceNode)
     }
+    // checkAnswer();
     
 }
 //ensuring that we answer this shizz  correctly ideally. If not you're gonna have a bad time.
+
+//WHY WONT YOU WORK WHY DO YOU HATE ME COMPUTER MAN
 function checkAnswer (event) {
-    let buttonEl = event.target;
+    let buttonEl = event.target; 
+    console.log(buttonEl);
     //if the you click somewhere that is not have the choice class just no. no stuff for you.
     if (!buttonEl.matches('.choice')) {
+        console.log(ahhhh)
         return
     }//this if is for if the button you click is not listed as answer you give me 20 seconds. theyre mine now thank you. I shall achieve immortality.
     if (buttonEl.value !== questions[questionIndex].answer) {
@@ -125,8 +130,12 @@ function score()  {
 
 }
 
-function endGame () {
+function endGame () {   
     //if timer = 0 bad time you lose
+    if (timeLeft <= 0) {
+        //this clears the timer interval so it stops at zero
+        clearInterval(timerID);
+    }
     //if questionsLeft === 0 you also maybe lose. Mostly your pride if your initials aren't A.S.S.
     //ends game
 }
