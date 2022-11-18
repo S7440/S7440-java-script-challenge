@@ -1,0 +1,117 @@
+/* I'm not commenting all this out you know what you're looking at. If you even look at this anyways.*/
+
+
+:root {
+    --header: #33658a;
+    --primary: #A9927D;
+    --secondary: #b47eb3;
+  }
+.bg-primary {
+    background-color: var(--primary);
+}
+body {
+
+    min-width: 762px;
+    background-color: #A9927D;
+    margin:0;
+} 
+button {
+    padding: 10px;
+   
+}
+ul {
+    list-style-type: none;
+    
+}
+/* li {
+    display: inline;
+} */
+a {
+    padding: 10px;
+    margin: 10px 10px 10px 0;
+    background-color: var(--primary);
+    color: black;
+    border: solid 2px black;
+    border-radius: 14px;
+    box-shadow: 5px 5px var(--primary);
+    align-self: center;
+    text-decoration: none;
+}
+a:hover {
+    background-color: var(--secondary);
+    box-shadow: none;
+}
+button {
+    display: inline-flex;
+    padding: 10px;
+    margin: 10px 10px 10px 0;
+    background-color: var(--primary);
+    color: black;
+    border-radius: 14px;
+    box-shadow: 5px 5px var(--header);
+  }
+  button a {
+    color: black
+  }
+  button:hover {
+    background-color: var(--secondary);
+    box-shadow: none;
+  
+  }
+  header {
+    display: flexbox
+   
+  }
+  
+.header {
+    display:flex;
+    background-color:var(--header);
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.container {
+    display: flex;
+    max-width: 960px;
+    margin-left: 10%;
+    margin-right: 10%;
+    align-items: center;
+
+
+}
+
+.game-area {
+    grid-area: game;
+    background-color: var(--primary);
+    width: 75vw;
+    
+}
+
+.score-area {
+    display: flex;
+    grid-area: score;
+    background-color: var(--primary);
+    width: 25vw;
+}
+
+.footer {
+align-items: end;
+    grid-area: footer;
+    background-color: var(--header);
+    text-align: center;
+
+}
+.timer-count {
+  margin-right: 25px;
+}
+
+.hide {
+    display: none
+}
+
+.start-screen {
+    text-align: center;
+}
