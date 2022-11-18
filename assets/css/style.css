@@ -1,3 +1,6 @@
+/* I'm not commenting all this out you know what you're looking at. If you even look at this anyways.*/
+
+
 :root {
     --header: #33658a;
     --primary: #A9927D;
@@ -8,10 +11,9 @@
 }
 body {
 
+    min-width: 762px;
     background-color: #A9927D;
-
-        
-    
+    margin:0;
 } 
 button {
     padding: 10px;
@@ -58,10 +60,10 @@ button {
   }
   header {
     display: flexbox
+   
   }
   
 .header {
-    grid-area: header;
     display:flex;
     background-color:var(--header);
     padding-left: 20px;
